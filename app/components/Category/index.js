@@ -10,7 +10,7 @@ class Category extends React.Component {
   render(){
       return (
       <div id= "home-category">
-        <ReactSwipe className="carousel" swipeOptions={{continuous: true}}>
+        <ReactSwipe className="carousel" swipeOptions={{continuous: false}}>
           <div className="carousel-item">
             <ul className="clear-fix">
               <li className="float-left jingdian">景点</li>

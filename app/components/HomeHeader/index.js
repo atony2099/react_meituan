@@ -3,7 +3,7 @@ import PureRenderMixin from 'react-addons-pure-render-mixin'
 import './style.less'
 import {Link,hashHistory} from 'react-router'
 
-
+import './style.less'
 class HomeHeader extends React.Component {
     constructor(props, context) {
         super(props, context);
