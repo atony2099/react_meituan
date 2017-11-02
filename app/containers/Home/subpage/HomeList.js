@@ -2,28 +2,63 @@ import React from 'react'
 import PureRenderMixin from 'react-addons-pure-render-mixin'
 import { getListData } from '../../../fetch/home/home'
 import List from  '../../../components/HomeList'
+import LoadMore from '../../../components/LoadMore'
 
 class HomeList extends React.Component {
     constructor(props, context) {
         super(props, context);
         this.shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate.bind(this);
         this.state = {
-            data: []
+            resultData:[],
+            hasMore:false,
+            isLoadingMore:false,
+            page:0
         }
     }
 
     render(){
+      const {hasMore} = this.state;
       return(
-        <List data={this.state.data}/>
+        <div>
+          <h2 className= "home-list-title">猜你喜欢</h2>
+          {
+            this.state.resultData.length
+            ? <List data={this.state.resultData}/>
+            : <div></div>
+          }
+          {
+            hasMore
+            ? <LoadMore isLoadingMore= {this.state.isLoadingMore}
+              loadMorefunc = {()=>this.loadMoreData()}>
+              </LoadMore>
+            :<div>已经加载完毕了</div>
+          }
+        </div>
       )
     }
 
-
-    componentDidMount(){
-      const result = getListData("beijing",1)
-      result.then(res=>res.json())
-      .then(data=>this.setState({data:data.data}))
-      .then(data=>console.log(data))
+    loadMoreData(){
+      var  {page,isLoadingMore,resultData} = this.state
+      this.setState({
+        isLoadingMore:true
+      })
+      this.getList(resultData);
+      this.setState({
+        isLoadingMore:false,
+        page:page++
+      })
+    }
+    getList(result){
+      let resultList = getListData("beijing",this.state.page)
+      resultList.then(res=>res.json())
+      .then(data=>{
+          let list  = result.concat(data.data)
+          this.setState({
+              resultData:list,
+              hasMore:data.hasMore
+            }
+          )
+      })
       .catch(ex => {
               // 发生错误
               if (__DEV__) {
@@ -32,6 +67,9 @@ class HomeList extends React.Component {
           })
     }
 
+    componentDidMount(){
+      this.loadMoreData();
+    }
 }
 
 

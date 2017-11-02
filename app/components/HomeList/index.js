@@ -12,16 +12,13 @@ class HomeList extends React.Component {
 
   render(){
     return(
-        <div id="home-like">
-          <h2>猜你喜欢</h2>
-          <div id="like-container">
+          <div className="list-container">
             {
               this.props.data.map((item,index)=> {
               return   <Item key= {index} data= {item}></Item>
               })
             }
           </div>
-        </div>
     )
 
   }

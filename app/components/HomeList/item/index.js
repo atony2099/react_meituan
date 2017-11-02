@@ -7,7 +7,6 @@ class Item extends React.Component {
       super(props, context);
       this.shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate.bind(this);
   }
-
   render(){
     const {data}  = this.props;
     return(
@@ -20,12 +19,12 @@ class Item extends React.Component {
             <h3 className = "float-left">{data.title}</h3>
             <span className = "float-right">{data.distance} </span>
           </div>
-          <p >
+          <p className = "item-sub-title">
             {data.subTitle}
           </p>
           <div className = "item-price-container clear-fix">
-            <h3 className ="float-left">{data.price}元</h3>
-            <span className ="float-right">已售{data.mumber}12份</span>
+            <h3 className ="float-left price">{data.price}元</h3>
+            <span className ="float-right  mumber">已售{data.mumber}12份</span>
           </div>
         </div>
       </div>
