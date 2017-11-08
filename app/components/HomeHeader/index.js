@@ -1,7 +1,9 @@
 import React from 'react'
 import PureRenderMixin from 'react-addons-pure-render-mixin'
 import './style.less'
+import InputContainer from '../InputContainer'
 import {Link,hashHistory} from 'react-router'
+
 
 import './style.less'
 class HomeHeader extends React.Component {
@@ -23,13 +25,17 @@ class HomeHeader extends React.Component {
                     <i className="icon-user"></i>
                 </div>
                 <div className="home-header-middle">
-                    <div className="search-container">
-                        <i className="icon-search"></i>
-                        <input type="text" placeholder="请输入关键字"/>
-                    </div>
+                    <InputContainer handleKeyEnter = {this.handleEnter.bind(this)}/>
                 </div>
             </div>
         )
+    }
+
+    handleEnter(value){
+        if (value.length<=0) {return};
+        let path = "search/all/"+ value;
+        console.log(path);
+        hashHistory.push(path);
     }
 }
 

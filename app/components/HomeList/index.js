@@ -22,6 +22,11 @@ class HomeList extends React.Component {
     )
 
   }
+  componentWillUpdate(){
+    console.log("HomeList will update");
+  }
+
+
 }
 
 export default  HomeList

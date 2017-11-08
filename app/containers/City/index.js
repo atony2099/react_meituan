@@ -19,7 +19,6 @@ class City extends React.Component {
           <div>
             <Header title = {"选择城市"}/>
             <CurrentCity userinfo = {this.props.userinfo}
-
             />
             <HotCity  clickCityFunc = {this.props.update}
             />
