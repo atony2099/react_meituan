@@ -3,7 +3,7 @@ import PureRenderMixin from 'react-addons-pure-render-mixin'
 import  Header  from '../../components/Header'
 
 
-class Detail extends React.Component {
+class Comments extends React.Component {
     constructor(props, context) {
         super(props, context);
         this.shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate.bind(this);
@@ -11,11 +11,9 @@ class Detail extends React.Component {
     render() {
         return (
             <div>
-                <Header title= {"商家详情"}/>
-
+              这里是评论详情
             </div>
         )
     }
 }
-
-export default Detail
+export default Comments
