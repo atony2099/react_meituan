@@ -10,10 +10,11 @@ class Item extends React.Component {
   }
   render(){
     const {data}  = this.props;
+    console.log("current-data",data);
     return(
 
       <div className="list-item clear-fix">
-        <Link to = {'/shop/' + data.id}>
+        <Link to = {'/shop/' + "123"}>
         <div className = "item-img-container float-left">
           <img src="http://img0.imgtn.bdimg.com/it/u=1057519802,4245354110&fm=27&gp=0.jpg"/>
         </div>
