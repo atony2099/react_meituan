@@ -1,19 +1,18 @@
 import React from 'react'
 import PureRenderMixin from 'react-addons-pure-render-mixin'
-import  Header  from '../../components/Header'
+import './style.less'
 
-
-class Comments extends React.Component {
+class  extends React.Component {
     constructor(props, context) {
         super(props, context);
         this.shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate.bind(this);
     }
-    render() {
-        return (
-            <div>
-              这里是评论详情
-            </div>
-        )
+    render(){
+      return(
+
+      )
     }
+
 }
-export default Comments
+
+export default ;
