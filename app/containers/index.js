@@ -27,13 +27,16 @@ class App extends React.Component {
     }
     componentDidMount() {
         // 获取位置信息
-        let cityName = LocalStore.getItem(CITYNAME)
+        let cityName = LocalStore.getItem(CITYNAME);
+        console.log("CurrentCityNameType:",typeof(cityName),cityName);
         if (cityName == null) {
             cityName = '北京'
+            LocalStore.setItem(CITYNAME,"beijing")
         }
-        this.props.userInfoActions.update({
-            cityName: cityName
-        })
+        var userinfo = this.props.userinfo;
+        userinfo.cityName = cityName;
+        this.props.userInfoActions.update(userinfo);
+
 
         // 更改状态
         this.setState({
@@ -41,10 +44,10 @@ class App extends React.Component {
         })
     }
 }
-
 // -------------------redux react 绑定--------------------
 function mapStateToProps(state) {
     return {
+      userinfo: state.userinfo
     }
 }
 

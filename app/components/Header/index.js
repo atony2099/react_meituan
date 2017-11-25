@@ -1,8 +1,12 @@
 import React from 'react'
 import PureRenderMixin from 'react-addons-pure-render-mixin'
 import './style.less'
+import PropTypes  from 'prop-types'
+import {hashHistory} from 'react-router'
+
 
 class Header extends React.Component {
+
     constructor(props, context) {
         super(props, context);
         this.shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate.bind(this);
@@ -22,7 +26,22 @@ class Header extends React.Component {
     }
 
     clickHandle(){
+      if (this.props.backRouter) {
+        hashHistory.push(this.props.backRouter)
+        return;
+      }
       window.history.back()
     }
 }
+
+Header.propTypes = {
+  title: PropTypes.string,
+  backRouter:PropTypes.string
+};
+
+// Header.defaultProps = {
+//   title:''
+// }
+
+
 export default Header

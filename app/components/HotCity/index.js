@@ -7,11 +7,6 @@ class HotCity  extends React.Component {
         super(props, context);
         this.shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate.bind(this);
     }
-    handleCityEvent(e){
-      let city = e.currentTarget.textContent;
-      const {clickCityFunc} = this.props;
-      clickCityFunc({cityName:city});
-    }
     render(){
       let cityArray = ["北京","上海","杭州","苏州","广州","南京","南京","厦门","武汉","西安"];
       return(
@@ -32,6 +27,12 @@ class HotCity  extends React.Component {
           </div>
         </div>
       )
+    }
+
+    handleCityEvent(e){
+      let city = e.currentTarget.textContent;
+      const {clickCityFunc} = this.props;
+      clickCityFunc(city);
     }
 
 }

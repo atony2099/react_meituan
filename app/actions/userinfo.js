@@ -6,3 +6,11 @@ export function update(data) {
         data
     }
 }
+
+// clear the userName
+export function clearUserName(data){
+  return {
+    type:actionTypes.CLEAN_USER,
+    data
+  }
+}
