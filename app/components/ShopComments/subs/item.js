@@ -8,9 +8,9 @@ class Items  extends React.Component {
         this.shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate.bind(this);
     }
     render(){
-      const {commentsList} = this.props;
+      const {comment} = this.props;
        return(
-        <h2>123</h2>
+        <div></div>
       )
     }
 }

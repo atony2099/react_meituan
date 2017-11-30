@@ -29,16 +29,14 @@ class App extends React.Component {
         // 获取位置信息
         let cityName = LocalStore.getItem(CITYNAME);
         console.log("CurrentCityNameType:",typeof(cityName),cityName);
-        if (cityName == null) {
+        if (cityName == null || cityName == '') {
             cityName = '北京'
-            LocalStore.setItem(CITYNAME,"beijing")
+            LocalStore.setItem(CITYNAME,cityName)
         }
-        var userinfo = this.props.userinfo;
-        userinfo.cityName = cityName;
-        this.props.userInfoActions.update(userinfo);
 
+        this.props.userInfoActions.updateCity(cityName);
 
-        // 更改状态
+        // 更改状
         this.setState({
             initDone: true
         })

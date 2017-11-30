@@ -43,13 +43,12 @@ class Comments extends React.Component {
 
 
     loadFirstpage(){
-
     }
 
     loadData(){
       // console.log(getShopDetailData);
       let {commnets}  = this.state
-      let  data =  getCommentData(this.state.page, this.props.id);
+      let  data =  igetCommentData(this.state.page, this.props.id);
       data.then(data=>data.json()).then(json=> {
         console.log(json)
         return json
@@ -59,8 +58,5 @@ class Comments extends React.Component {
         console.log(commnets.length,'currentLength is ___');
       })
     }
-
-
-
 }
 export default Comments

@@ -1,2 +1,3 @@
 export const USERINFO_UPDATE = 'USERINFO_UPDATE'
+export const USER_CITY_UPDATE = 'USER_CITY_UPDATE'
 export const CLEAN_USER = 'CLEAN_USER'

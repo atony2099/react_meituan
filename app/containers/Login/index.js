@@ -24,25 +24,23 @@ class Login extends React.Component{
       )
     }
 
-
     componentDidMount(){
+      console.log("Login========componentDidMount");
        this.checkHasLogin()
     }
 
 
     handleLogin(userName){
-      let userinfo = this.props.userinfo;
-      userinfo.userName =  userName;
       LocalStore.setItem(USERNAME,userName);
-      this.props.update(userinfo);
+      this.props.update(userName);
       const {params} = this.props
       if (params.loginedPath) {
-        hashHistory.push(params.loginedPath)
+        hashHistory.replace(params.loginedPath)
       } else {
-        hashHistory.push('/User')
+        hashHistory.replace('/User')
       }
-
     }
+
 
     checkHasLogin(){
       // 1. check user haslogin
@@ -50,14 +48,10 @@ class Login extends React.Component{
       // 3. else stay in login page
       let userName  = LocalStore.getItem(USERNAME);
       if (userName.length) {
-        let {userinfo} = this.props;
-        userinfo.userName =  userName;
-        this.props.update(userinfo);
-
-        hashHistory.push('/User')
+        this.props.update(userName);
+        hashHistory.push('/User');
       } else {
-          // stay herew
-          console.log(userName,'kkkkk');
+
       }
     }
 }

@@ -25,11 +25,19 @@ class User extends React.Component {
     render() {
         return (
           <div>
-            <Header title = {"用户主页"} backRouter = {"/"}/>
-            <UserInfo userinfo= {this.props.userinfo}/>
-            <OrderList orderList = {this.state.orderList}/>  
+            <Header title = {"用户主页"}/>
+            <UserInfo userinfo= {this.props.userinfo} loginOutFunc ={this.loginOutFunc.bind(this)} />
+            <OrderList orderList = {this.state.orderList}/>
           </div>
         )
+    }
+
+    loginOutFunc(){
+      console.log("========");
+      LocalStore.setItem(USERNAME,'');
+      const {userinfoActions} = this.props;
+      userinfoActions.clearUserName()
+      hashHistory.goBack();
     }
 
     componentDidMount(){
@@ -53,7 +61,7 @@ function mapStateToProps(state){
 
 function mapDispatchToProps(dispatch){
   return {
-    // userinfoActions:bindActionCreators(userInfoActionsFromOtherFile,dispatch),
+     userinfoActions:bindActionCreators(userInfoActionsFromOtherFile,dispatch),
   }
 }
 

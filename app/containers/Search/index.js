@@ -23,6 +23,18 @@ class SearchDetail extends React.Component {
         )
     }
 
+    componentDidMount(){
+      console.log("search didMount");
+
+    }
+
+    componentDidUpdate(){
+      console.log("search didupdate");
+    }
+
+
+
+
 
 }
 

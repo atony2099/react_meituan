@@ -82,7 +82,6 @@ class SeachList extends React.Component {
           this.loadMoreData();
         }
 
-
         componentDidUpdate(prePros,presSate){
           console.log(prePros,"props");
             // 新的值 vs 旧的值
@@ -91,7 +90,6 @@ class SeachList extends React.Component {
             if(currentInputValue == preInputValue && currentCategory == preCategory){
                 return;
             }
-
             this.setState(initState)
             this.loadMoreData();
         }

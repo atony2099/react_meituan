@@ -4,8 +4,10 @@ import  Header  from '../../components/Header'
 import  ShopInfo from '../../components/ShopInfo'
 import Comments from  './subpage/Comments'
 import Store from  './subpage/store'
-
 import { getShopDetailData } from '../../fetch/detail/detail'
+
+import {createHistory} from 'history'
+
 
 class Detail extends React.Component {
     constructor(props, context) {
@@ -27,16 +29,33 @@ class Detail extends React.Component {
     }
 
     componentDidMount(){
-      console.log("detail has mount");
+       console.log("detail has mount");
         let params = this.props.params;
         console.log("detail,params:",params);
         getShopDetailData(params.shopID).then(res=>res.json())
-        .then(data=>{
+         .then(data=>{
           this.setState({
             shopDetail:data
           })
         })
+
+      this.testHistory()
     }
+
+    testHistory(){
+
+      const {history,location} = this.props;
+      // 当前的地址
+      // const location = history.getCurrentLocation()
+      console.log("history===",location);
+      // 监听当前的地址变换
+      // const unlisten = history.listen(location => {
+      // console.log(location.pathname)
+      // })
+
+  }
+
+
 
 }
 

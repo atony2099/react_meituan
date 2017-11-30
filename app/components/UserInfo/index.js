@@ -6,7 +6,7 @@ import './style.less'
 class StoreView extends React.Component {
 
     render(){
-      const {userinfo} = this.props;
+      const {userinfo,loginOutFunc} = this.props;
       return (
         <div className="userinfo-container">
           <div className='info-container'>
@@ -17,9 +17,17 @@ class StoreView extends React.Component {
             <i className="icon-tablet"></i>
             <span>{userinfo.cityName}</span>
           </div>
+          <div onClick = {this.loginOutFunc.bind(this)} >
+            退出登录
+          </div>
         </div>
       )
     }
+
+    loginOutFunc(){
+      this.props.loginOutFunc();
+    }
+
 
     clickStoreFunc(isStore){
       const {clickStoreFunc} = this.props;

@@ -38,6 +38,7 @@ class HomeHeader extends React.Component {
         let path = "search/all/"+ value;
         console.log(path);
         hashHistory.push(path);
+
     }
 }
 

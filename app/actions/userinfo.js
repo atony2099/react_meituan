@@ -7,10 +7,17 @@ export function update(data) {
     }
 }
 
-// clear the userName
-export function clearUserName(data){
+
+export function updateCity(data){
   return {
-    type:actionTypes.CLEAN_USER,
+    type:actionTypes.USER_CITY_UPDATE,
     data
+  }
+}
+
+// clear the userName
+export function clearUserName(){
+  return {
+    type:actionTypes.CLEAN_USER
   }
 }

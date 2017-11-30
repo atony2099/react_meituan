@@ -22,7 +22,17 @@ class Home extends React.Component{
 
       )
     }
+
+    componentDidMount(){
+      console.log("homepage-didMount");
+    }
+
+    componentWillUpdate(){
+      console.log("homepage-- willupdate");
+    }
 }
+
+
 
 // ======= redux =========
 function mapStateToProps(state){

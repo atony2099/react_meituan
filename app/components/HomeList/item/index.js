@@ -10,7 +10,7 @@ class Item extends React.Component {
   }
   render(){
     const {data}  = this.props;
-    console.log("current-data",data);
+  ///  console.log("current-data",data);
     return(
 
       <div className="list-item clear-fix">

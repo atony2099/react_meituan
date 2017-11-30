@@ -28,11 +28,9 @@ class City extends React.Component {
     }
 
     handelCityChange(data){
-      console.log(this.props.userinfo,data);
-      const userinfo = this.props.userinfo;
-      userinfo.cityName = data;
+
       // 1. updata user
-      this.props.update(userinfo);
+      this.props.updateCity(data);
       // 2. set to local
       // LocalStore.setItem({USERNAME:data});
       //3. 跳转页面
@@ -48,7 +46,7 @@ function  mapStateToProps(state){
 }
 function mapDispatchToProps(dispatch){
   return{
-    update:(data) => dispatch(userInfoActionsFromOtherFile.update(data))
+    updateCity:(data) => dispatch(userInfoActionsFromOtherFile.updateCity(data))
   }
 }
 

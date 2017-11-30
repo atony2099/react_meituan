@@ -16,7 +16,7 @@ class Login  extends React.Component {
     render(){
       return(
         <div className= "login-container clear-fix">
-          <div className = "input-container phone-container" onChange={this.handleUserName.bind(this)}>
+          <div className = "input-container phone-container" value={this.props.userName} onChange={this.handleUserName.bind(this)}>
             <i className="icon-tablet"></i>
             <input placeholder="请输入手机号"/>
           </div>
